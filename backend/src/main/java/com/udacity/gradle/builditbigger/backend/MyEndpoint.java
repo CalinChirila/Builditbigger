@@ -19,6 +19,7 @@ import com.udacity.gradle.builditbigger.JavaJokes.JavaJoker;
 public class MyEndpoint {
 
     /** A simple endpoint method that takes a name and says Hi back */
+    // @Named("name") String name
     @ApiMethod(name = "sayHi")
     public MyBean sayHi(@Named("name") String name) {
         MyBean response = new MyBean();

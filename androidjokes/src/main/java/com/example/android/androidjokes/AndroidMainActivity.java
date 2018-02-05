@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 public class AndroidMainActivity extends AppCompatActivity {
-    public static final String JOKE_EXTRA = "jokeExtra";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +16,7 @@ public class AndroidMainActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         if(intent != null){
-            String joke = intent.getStringExtra(JOKE_EXTRA) + ", from android library";
+            String joke = intent.getStringExtra(getResources().getString(R.string.EXTRA_STRING)) + " From android library";
             androidJoke.setText(joke);
         }
 
