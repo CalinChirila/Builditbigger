@@ -65,4 +65,9 @@ public class MainActivityFragment extends Fragment {
         intent.putExtra(JOKE_EXTRA, joke);
         startActivity(intent);
     }
+
+    public void retrieveJokeFromGCE(){
+        EndpointsAsyncTask task = new EndpointsAsyncTask();
+        task.execute(getContext());
+    }
 }
