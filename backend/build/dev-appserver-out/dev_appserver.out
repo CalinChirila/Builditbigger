@@ -1,7 +1,19 @@
-Feb 05, 2018 1:30:50 PM com.google.appengine.tools.development.SystemPropertiesManager setSystemProperties
+Feb 05, 2018 4:46:33 PM com.google.appengine.tools.development.SystemPropertiesManager setSystemProperties
 INFO: Overwriting system property key 'java.util.logging.config.file', value 'C:\Users\Astraeus\AppData\Local\Google\Cloud SDK\google-cloud-sdk\platform\google_appengine\google\appengine\tools\java\config\sdk\logging.properties' with value 'WEB-INF/logging.properties' from 'C:\Users\Astraeus\Desktop\Incercarea2\FinalProject\backend\build\exploded-backend\WEB-INF\appengine-web.xml'
-2018-02-05 13:30:50.187:INFO::main: Logging initialized @407ms
+2018-02-05 16:46:33.218:INFO::main: Logging initialized @348ms
+Feb 05, 2018 2:46:33 PM com.google.appengine.tools.development.IsolatedAppClassLoader checkWorkingDirectory
+WARNING: Your working directory, (C:\Users\Astraeus\Desktop\Incercarea2\FinalProject) is not equal to your 
+web application root (C:\Users\Astraeus\Desktop\Incercarea2\FinalProject\backend\build\exploded-backend)
+You will not be able to access files from your working directory on the production server.
 
-************************************************
-Could not open the requested socket: Address already in use: bind
-Try overriding --address and/or --port.
+2018-02-05 16:46:34.193:INFO:oejs.Server:main: jetty-9.3.18.v20170406
+2018-02-05 16:46:36.631:INFO:oeja.AnnotationConfiguration:main: Scanning elapsed time=2093ms
+2018-02-05 16:46:37.042:INFO:oejsh.ContextHandler:main: Started c.g.a.t.d.j.DevAppEngineWebAppContext@7d9f158f{/,file:///C:/Users/Astraeus/Desktop/Incercarea2/FinalProject/backend/build/exploded-backend/,AVAILABLE}{C:\Users\Astraeus\Desktop\Incercarea2\FinalProject\backend\build\exploded-backend}
+2018-02-05 16:46:37.055:INFO:oejs.AbstractConnector:main: Started NetworkTrafficSelectChannelConnector@76b07f29{HTTP/1.1,[http/1.1]}{localhost:8080}
+2018-02-05 16:46:37.056:INFO:oejs.Server:main: Started @4186ms
+Feb 05, 2018 2:46:37 PM com.google.appengine.tools.development.AbstractModule startup
+INFO: Module instance default is running at http://localhost:8080/
+Feb 05, 2018 2:46:37 PM com.google.appengine.tools.development.AbstractModule startup
+INFO: The admin console is running at http://localhost:8080/_ah/admin
+Feb 05, 2018 4:46:37 PM com.google.appengine.tools.development.DevAppServerImpl doStart
+INFO: Dev App Server is now running

@@ -1,8 +1,10 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +42,8 @@ public class MainActivityFragment extends Fragment {
             @Override
             public void onClick(View v){
                 //showJoke();
-                sendJokeAsIntentExtra();
+                //sendJokeAsIntentExtra();
+                retrieveJokeFromGCE();
             }
         });
 
@@ -68,6 +71,6 @@ public class MainActivityFragment extends Fragment {
 
     public void retrieveJokeFromGCE(){
         EndpointsAsyncTask task = new EndpointsAsyncTask();
-        task.execute(getContext());
+        task.execute(new Pair<Context, String>(getContext(), joke));
     }
 }
