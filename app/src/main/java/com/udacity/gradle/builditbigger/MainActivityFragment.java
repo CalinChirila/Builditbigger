@@ -5,9 +5,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.udacity.gradle.builditbigger.JavaJokes.JavaJoker;
 
 
 /**
@@ -23,6 +26,15 @@ public class MainActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_main, container, false);
 
+        // Set up the tell joke button
+        Button jokeButton = root.findViewById(R.id.joke_button);
+        jokeButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                showJoke();
+            }
+        });
+
         AdView mAdView = (AdView) root.findViewById(R.id.adView);
         // Create an ad request. Check logcat output for the hashed device ID to
         // get test ads on a physical device. e.g.
@@ -32,5 +44,12 @@ public class MainActivityFragment extends Fragment {
                 .build();
         mAdView.loadAd(adRequest);
         return root;
+    }
+
+    // Display the joke as a toast message
+    public void showJoke(){
+        JavaJoker joker = new JavaJoker();
+        String joke = joker.getJoke();
+        Toast.makeText(getContext(), joke, Toast.LENGTH_LONG).show();
     }
 }
