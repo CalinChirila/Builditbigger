@@ -35,6 +35,9 @@ android {
         free {
             applicationId 'com.udacity.gradle.builditbigger.free'
             flavorDimensions 'free'
+            dependencies {
+                implementation 'com.google.android.gms:play-services-ads:11.8.0'
+            }
         }
         paid {
             applicationId 'com.udacity.gradle.builditbigger.paid'
@@ -58,7 +61,7 @@ dependencies {
     implementation 'com.android.support:support-v4:27.0.2'
     //-------------------------------------------------------------
 
-    implementation 'com.google.android.gms:play-services-ads:11.8.0'
+
     implementation 'com.google.api-client:google-api-client:1.23.0'
     implementation 'com.google.http-client:google-http-client-android:1.23.0'
     implementation 'com.google.code.findbugs:jsr305:3.0.1'
