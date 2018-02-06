@@ -3,7 +3,6 @@ package com.udacity.gradle.builditbigger;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v4.util.Pair;
 
 import com.example.android.androidjokes.AndroidMainActivity;
 import com.google.api.client.extensions.android.http.AndroidHttp;
@@ -18,12 +17,20 @@ import java.io.IOException;
  * Created by Astraeus on 2/5/2018.
  */
 
-class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
+class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
     private static MyApi myApiService = null;
-    private Context context;
+    private Context mContext;
+
+    public EndpointsAsyncTask(Context context){
+        mContext = context;
+    }
+
+    public EndpointsAsyncTask(){
+
+    }
 
     @Override
-    protected String doInBackground(Pair<Context, String>... params) {
+    protected String doInBackground(Void... voids) {
         if(myApiService == null) {  // Only do this once
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
@@ -42,11 +49,9 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
             myApiService = builder.build();
         }
 
-        context = params[0].first;
-        String name = params[0].second;
 
         try {
-            return myApiService.sayHi(name).execute().getData();
+            return myApiService.tellJoke().execute().getData();
         } catch (IOException e) {
             return e.getMessage();
         }
@@ -54,10 +59,9 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> 
 
     @Override
     protected void onPostExecute(String result) {
-
         //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(context, AndroidMainActivity.class);
-        intent.putExtra(context.getResources().getString(R.string.EXTRA_STRING), result);
-        context.startActivity(intent);
+        Intent intent = new Intent(mContext, AndroidMainActivity.class);
+        intent.putExtra(mContext.getResources().getString(R.string.EXTRA_STRING), result);
+        mContext.startActivity(intent);
     }
 }
