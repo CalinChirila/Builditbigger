@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Handler;
+import android.view.View;
 
 import com.example.android.androidjokes.AndroidMainActivity;
 import com.google.api.client.extensions.android.http.AndroidHttp;
@@ -14,12 +15,17 @@ import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 
 import java.io.IOException;
 
+import static com.udacity.gradle.builditbigger.MainActivityFragment.mProgressBar;
+
 /**
  * Created by Astraeus on 2/5/2018.
  */
 
-class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
+class EndpointsAsyncTask extends AsyncTask<Void, Integer, String> {
     private static MyApi myApiService = null;
+
+    private static final int DELAY_FOR_ADD = 5000;
+
     private Context mContext;
 
     public EndpointsAsyncTask(Context context){
@@ -28,6 +34,18 @@ class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
 
     public EndpointsAsyncTask(){
 
+    }
+
+    @Override
+    protected void onPreExecute() {
+        mProgressBar.setVisibility(View.VISIBLE);
+        super.onPreExecute();
+    }
+
+    @Override
+    protected void onProgressUpdate(Integer... values) {
+        mProgressBar.setProgress(values[0]);
+        super.onProgressUpdate(values);
     }
 
     @Override
@@ -50,8 +68,6 @@ class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
             myApiService = builder.build();
 
         }
-
-
         try {
             return myApiService.tellJoke().execute().getData();
         } catch (IOException e) {
@@ -65,10 +81,11 @@ class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                mProgressBar.setVisibility(View.GONE);
                 Intent intent = new Intent(mContext, AndroidMainActivity.class);
                 intent.putExtra(mContext.getResources().getString(R.string.EXTRA_STRING), result);
                 mContext.startActivity(intent);
             }
-        }, 5000);
+        }, DELAY_FOR_ADD);
     }
 }

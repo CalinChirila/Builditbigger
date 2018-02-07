@@ -3,6 +3,7 @@ package com.udacity.gradle.builditbigger;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.view.View;
 
 import com.example.android.androidjokes.AndroidMainActivity;
 import com.google.api.client.extensions.android.http.AndroidHttp;
@@ -13,11 +14,13 @@ import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 
 import java.io.IOException;
 
+import static com.udacity.gradle.builditbigger.MainActivityFragment.mProgressBar;
+
 /**
  * Created by Astraeus on 2/5/2018.
  */
 
-class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
+class EndpointsAsyncTask extends AsyncTask<Void, Integer, String> {
     private static MyApi myApiService = null;
     private Context mContext;
 
@@ -27,6 +30,18 @@ class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
 
     public EndpointsAsyncTask(){
 
+    }
+
+    @Override
+    protected void onPreExecute() {
+        mProgressBar.setVisibility(View.VISIBLE);
+        super.onPreExecute();
+    }
+
+    @Override
+    protected void onProgressUpdate(Integer... values) {
+        mProgressBar.setProgress(values[0]);
+        super.onProgressUpdate(values);
     }
 
     @Override
@@ -60,6 +75,7 @@ class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+        mProgressBar.setVisibility(View.GONE);
         Intent intent = new Intent(mContext, AndroidMainActivity.class);
         intent.putExtra(mContext.getResources().getString(R.string.EXTRA_STRING), result);
         mContext.startActivity(intent);

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.android.androidjokes.AndroidMainActivity;
@@ -29,6 +30,7 @@ public class MainActivityFragment extends Fragment {
     String joke = joker.getJoke();
 
     public static InterstitialAd mInterstitialAd;
+    public static ProgressBar mProgressBar;
 
     public MainActivityFragment() {
     }
@@ -37,6 +39,8 @@ public class MainActivityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_main, container, false);
+
+        mProgressBar = root.findViewById(R.id.progress_bar);
 
         configureInterstitialAd();
 
@@ -47,6 +51,7 @@ public class MainActivityFragment extends Fragment {
             public void onClick(View v){
                 //showJoke();
                 //sendJokeAsIntentExtra();
+
                 showInterstitialAd();
                 retrieveJokeFromGCE();
             }
@@ -95,4 +100,5 @@ public class MainActivityFragment extends Fragment {
             mInterstitialAd.show();
         }
     }
+
 }
