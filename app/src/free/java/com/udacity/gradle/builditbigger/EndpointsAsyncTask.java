@@ -24,7 +24,7 @@ import static com.udacity.gradle.builditbigger.MainActivityFragment.mProgressBar
 class EndpointsAsyncTask extends AsyncTask<Void, Integer, String> {
     private static MyApi myApiService = null;
 
-    private static final int DELAY_FOR_ADD = 5000;
+    private static final int DELAY_FOR_ADD = 500;
 
     private Context mContext;
 
@@ -36,9 +36,12 @@ class EndpointsAsyncTask extends AsyncTask<Void, Integer, String> {
 
     }
 
+
     @Override
     protected void onPreExecute() {
-        mProgressBar.setVisibility(View.VISIBLE);
+        if(mProgressBar != null) {
+            mProgressBar.setVisibility(View.VISIBLE);
+        }
         super.onPreExecute();
     }
 

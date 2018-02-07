@@ -1,0 +1,19 @@
+Feb 07, 2018 2:04:37 PM com.google.appengine.tools.development.SystemPropertiesManager setSystemProperties
+INFO: Overwriting system property key 'java.util.logging.config.file', value 'C:\Users\Astraeus\AppData\Local\Google\Cloud SDK\google-cloud-sdk\platform\google_appengine\google\appengine\tools\java\config\sdk\logging.properties' with value 'WEB-INF/logging.properties' from 'C:\Users\Astraeus\Desktop\Incercarea2\FinalProject\backend\build\exploded-backend\WEB-INF\appengine-web.xml'
+2018-02-07 14:04:37.928:INFO::main: Logging initialized @297ms
+Feb 07, 2018 12:04:38 PM com.google.appengine.tools.development.IsolatedAppClassLoader checkWorkingDirectory
+WARNING: Your working directory, (C:\Users\Astraeus\Desktop\Incercarea2\FinalProject) is not equal to your 
+web application root (C:\Users\Astraeus\Desktop\Incercarea2\FinalProject\backend\build\exploded-backend)
+You will not be able to access files from your working directory on the production server.
+
+2018-02-07 14:04:38.218:INFO:oejs.Server:main: jetty-9.3.18.v20170406
+2018-02-07 14:04:40.515:INFO:oeja.AnnotationConfiguration:main: Scanning elapsed time=2062ms
+2018-02-07 14:04:40.812:INFO:oejsh.ContextHandler:main: Started c.g.a.t.d.j.DevAppEngineWebAppContext@7d9f158f{/,file:///C:/Users/Astraeus/Desktop/Incercarea2/FinalProject/backend/build/exploded-backend/,AVAILABLE}{C:\Users\Astraeus\Desktop\Incercarea2\FinalProject\backend\build\exploded-backend}
+2018-02-07 14:04:40.823:INFO:oejs.AbstractConnector:main: Started NetworkTrafficSelectChannelConnector@76b07f29{HTTP/1.1,[http/1.1]}{localhost:8080}
+2018-02-07 14:04:40.824:INFO:oejs.Server:main: Started @3193ms
+Feb 07, 2018 12:04:40 PM com.google.appengine.tools.development.AbstractModule startup
+INFO: Module instance default is running at http://localhost:8080/
+Feb 07, 2018 12:04:40 PM com.google.appengine.tools.development.AbstractModule startup
+INFO: The admin console is running at http://localhost:8080/_ah/admin
+Feb 07, 2018 2:04:40 PM com.google.appengine.tools.development.DevAppServerImpl doStart
+INFO: Dev App Server is now running
