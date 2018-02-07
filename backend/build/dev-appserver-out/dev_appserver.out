@@ -1,19 +1,19 @@
-Feb 06, 2018 12:30:42 PM com.google.appengine.tools.development.SystemPropertiesManager setSystemProperties
+Feb 07, 2018 10:47:50 AM com.google.appengine.tools.development.SystemPropertiesManager setSystemProperties
 INFO: Overwriting system property key 'java.util.logging.config.file', value 'C:\Users\Astraeus\AppData\Local\Google\Cloud SDK\google-cloud-sdk\platform\google_appengine\google\appengine\tools\java\config\sdk\logging.properties' with value 'WEB-INF/logging.properties' from 'C:\Users\Astraeus\Desktop\Incercarea2\FinalProject\backend\build\exploded-backend\WEB-INF\appengine-web.xml'
-2018-02-06 12:30:42.472:INFO::main: Logging initialized @1766ms
-Feb 06, 2018 10:30:43 AM com.google.appengine.tools.development.IsolatedAppClassLoader checkWorkingDirectory
+2018-02-07 10:47:50.808:INFO::main: Logging initialized @1538ms
+Feb 07, 2018 8:47:51 AM com.google.appengine.tools.development.IsolatedAppClassLoader checkWorkingDirectory
 WARNING: Your working directory, (C:\Users\Astraeus\Desktop\Incercarea2\FinalProject) is not equal to your 
 web application root (C:\Users\Astraeus\Desktop\Incercarea2\FinalProject\backend\build\exploded-backend)
 You will not be able to access files from your working directory on the production server.
 
-2018-02-06 12:30:43.340:INFO:oejs.Server:main: jetty-9.3.18.v20170406
-2018-02-06 12:30:45.712:INFO:oeja.AnnotationConfiguration:main: Scanning elapsed time=1940ms
-2018-02-06 12:30:46.474:INFO:oejsh.ContextHandler:main: Started c.g.a.t.d.j.DevAppEngineWebAppContext@7d9f158f{/,file:///C:/Users/Astraeus/Desktop/Incercarea2/FinalProject/backend/build/exploded-backend/,AVAILABLE}{C:\Users\Astraeus\Desktop\Incercarea2\FinalProject\backend\build\exploded-backend}
-2018-02-06 12:30:46.531:INFO:oejs.AbstractConnector:main: Started NetworkTrafficSelectChannelConnector@76b07f29{HTTP/1.1,[http/1.1]}{localhost:8080}
-2018-02-06 12:30:46.532:INFO:oejs.Server:main: Started @5825ms
-Feb 06, 2018 10:30:47 AM com.google.appengine.tools.development.AbstractModule startup
+2018-02-07 10:47:51.725:INFO:oejs.Server:main: jetty-9.3.18.v20170406
+2018-02-07 10:47:55.753:INFO:oeja.AnnotationConfiguration:main: Scanning elapsed time=3210ms
+2018-02-07 10:48:00.637:INFO:oejsh.ContextHandler:main: Started c.g.a.t.d.j.DevAppEngineWebAppContext@7d9f158f{/,file:///C:/Users/Astraeus/Desktop/Incercarea2/FinalProject/backend/build/exploded-backend/,AVAILABLE}{C:\Users\Astraeus\Desktop\Incercarea2\FinalProject\backend\build\exploded-backend}
+2018-02-07 10:48:00.678:INFO:oejs.AbstractConnector:main: Started NetworkTrafficSelectChannelConnector@76b07f29{HTTP/1.1,[http/1.1]}{localhost:8080}
+2018-02-07 10:48:00.679:INFO:oejs.Server:main: Started @11409ms
+Feb 07, 2018 8:48:00 AM com.google.appengine.tools.development.AbstractModule startup
 INFO: Module instance default is running at http://localhost:8080/
-Feb 06, 2018 10:30:47 AM com.google.appengine.tools.development.AbstractModule startup
+Feb 07, 2018 8:48:00 AM com.google.appengine.tools.development.AbstractModule startup
 INFO: The admin console is running at http://localhost:8080/_ah/admin
-Feb 06, 2018 12:30:47 PM com.google.appengine.tools.development.DevAppServerImpl doStart
+Feb 07, 2018 10:48:00 AM com.google.appengine.tools.development.DevAppServerImpl doStart
 INFO: Dev App Server is now running

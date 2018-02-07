@@ -1,5 +1,6 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,8 @@ import android.widget.Toast;
 import com.example.android.androidjokes.AndroidMainActivity;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 import com.udacity.gradle.builditbigger.JavaJokes.JavaJoker;
 
 
@@ -25,6 +28,7 @@ public class MainActivityFragment extends Fragment {
     JavaJoker joker = new JavaJoker();
     String joke = joker.getJoke();
 
+    public static InterstitialAd mInterstitialAd;
 
     public MainActivityFragment() {
     }
@@ -34,6 +38,8 @@ public class MainActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_main, container, false);
 
+        configureInterstitialAd();
+
         // Set up the tell joke button
         Button jokeButton = root.findViewById(R.id.joke_button);
         jokeButton.setOnClickListener(new View.OnClickListener(){
@@ -41,6 +47,7 @@ public class MainActivityFragment extends Fragment {
             public void onClick(View v){
                 //showJoke();
                 //sendJokeAsIntentExtra();
+                showInterstitialAd();
                 retrieveJokeFromGCE();
             }
         });
@@ -70,5 +77,22 @@ public class MainActivityFragment extends Fragment {
     public void retrieveJokeFromGCE(){
         EndpointsAsyncTask task = new EndpointsAsyncTask(getContext());
         task.execute();
+    }
+
+    private void configureInterstitialAd(){
+        Context context = getContext();
+        if(context != null) {
+            String interstitialAdId = context.getResources().getString(R.string.interstitial_ad_unit_id);
+            MobileAds.initialize(context, interstitialAdId);
+            mInterstitialAd = new InterstitialAd(context);
+            mInterstitialAd.setAdUnitId(interstitialAdId);
+            mInterstitialAd.loadAd(new AdRequest.Builder().build());
+        }
+    }
+
+    public void showInterstitialAd(){
+        if(mInterstitialAd.isLoaded()){
+            mInterstitialAd.show();
+        }
     }
 }
