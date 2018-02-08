@@ -24,7 +24,7 @@ import static com.udacity.gradle.builditbigger.MainActivityFragment.mProgressBar
 class EndpointsAsyncTask extends AsyncTask<Void, Integer, String> {
     private static MyApi myApiService = null;
 
-    private static final int DELAY_FOR_ADD = 500;
+    private static final int DELAY_FOR_AD = 3000;
 
     private Context mContext;
 
@@ -35,7 +35,6 @@ class EndpointsAsyncTask extends AsyncTask<Void, Integer, String> {
     public EndpointsAsyncTask(){
 
     }
-
 
     @Override
     protected void onPreExecute() {
@@ -89,6 +88,6 @@ class EndpointsAsyncTask extends AsyncTask<Void, Integer, String> {
                 intent.putExtra(mContext.getResources().getString(R.string.EXTRA_STRING), result);
                 mContext.startActivity(intent);
             }
-        }, DELAY_FOR_ADD);
+        }, DELAY_FOR_AD);
     }
 }
